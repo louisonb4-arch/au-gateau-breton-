@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — drawn from the house itself:
+ * tuffeau-cream façade, bordeaux sign & brick quoins, slate roof, brass lantern, terracotta dining room.
+ */
+@theme {
+  --color-cream: #f4ede1;
+  --color-paper: #faf6ef;
+  --color-line: #e3d8c6;
+  --color-ink: #1f2226;
+  --color-slate: #3b4148;
+  --color-muted: #6c655b;
+  --color-bordeaux: #6b1b27;
+  --color-bordeaux-deep: #4a111b;
+  --color-bordeaux-soft: #f1dfdc;
+  --color-brass: #a9844f;
+  --color-brass-light: #d9c29a;
+  --color-terracotta: #c2553d;
+
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-arch: 999px 999px 0 0;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-balance;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    @apply bg-bordeaux text-paper;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-bordeaux;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
