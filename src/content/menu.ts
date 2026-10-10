@@ -223,7 +223,7 @@ export const menuTabs: MenuTab[] = [
     label: { fr: "Enfants & extras", en: "Kids & sides" },
     groups: [
       {
-        title: { fr: "Menu « P’tit Bout »", en: "« P’tit Bout » kids’ menu" },
+        title: { fr: "Menu « P’tit Bout »", en: "“P’tit Bout” kids’ menu" },
         note: { fr: "Pour les moins de 12 ans.", en: "For children under 12." },
         dishes: [
           {

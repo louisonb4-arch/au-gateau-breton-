@@ -6,9 +6,15 @@ import { useEffect } from "react";
  * Drives the scroll reveals declared with `data-reveal` (styles in globals.css).
  * Elements already on screen when the page loads are shown at once, so nothing visible ever blinks;
  * without JavaScript or with reduced motion, everything simply stays visible.
+ * Also turns on smooth in-page scrolling once the initial (deep-link) scroll is done.
  */
 export function RevealObserver() {
   useEffect(() => {
+    const enableSmoothScroll = () =>
+      requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("smooth-scroll")));
+    if (document.readyState === "complete") enableSmoothScroll();
+    else window.addEventListener("load", enableSmoothScroll, { once: true });
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -26,10 +32,26 @@ export function RevealObserver() {
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+      // threshold 0: tall blocks (the booking card on a phone) reveal as soon as they cross the line.
+      { rootMargin: "0px 0px -10% 0px", threshold: 0 },
     );
     for (const el of elements) if (!el.classList.contains("is-in")) observer.observe(el);
-    return () => observer.disconnect();
+
+    // Keyboard users must never focus something that is still invisible.
+    const onFocusIn = (e: FocusEvent) => {
+      const block = (e.target as Element | null)?.closest?.("[data-reveal]");
+      if (block) {
+        block.classList.add("is-in");
+        observer.unobserve(block);
+      }
+    };
+    document.addEventListener("focusin", onFocusIn);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("focusin", onFocusIn);
+      window.removeEventListener("load", enableSmoothScroll);
+    };
   }, []);
 
   return null;

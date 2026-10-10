@@ -34,7 +34,7 @@ export function HoursTable({ lang, t }: { lang: Locale; t: Dictionary["info"] })
             >
               <dt className="flex items-center gap-2">
                 {t.days[day]}
-                {isToday && <span className="rounded-full bg-bordeaux px-2 py-0.5 text-[10px] tracking-wide text-paper uppercase">{t.today}</span>}
+                {isToday && <span className="rounded-full bg-bordeaux px-2 py-0.5 text-[11px] tracking-wide text-paper uppercase">{t.today}</span>}
               </dt>
               <dd className="text-right tabular-nums">
                 {r.length ? r.map((x) => <span key={x} className="block">{x}</span>) : <span className="text-muted">{t.closed}</span>}

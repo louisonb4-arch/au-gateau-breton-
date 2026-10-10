@@ -27,7 +27,7 @@ export function HomePage({ lang }: { lang: Locale }) {
         <ProofBar lang={lang} t={t.proof} />
         <Story t={t} />
         <Signatures lang={lang} t={t.signatures} />
-        <Marquee items={t.marquee} />
+        <Marquee items={t.marquee} labels={t.marqueeControls} />
         <MenuSection lang={lang} t={t.menu} />
         <Spaces t={t.spaces} />
         <Reservation lang={lang} t={t.reservation} />

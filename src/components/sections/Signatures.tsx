@@ -29,7 +29,7 @@ function PhotoCard({ i, src, alt, title, text, badge }: { i: number; src: string
       <div className="absolute inset-0 bg-gradient-to-t from-ink-deep/95 via-ink-deep/35 to-transparent" />
       <div className="relative p-7 transition-transform duration-700 ease-out-soft group-hover:-translate-y-1 sm:p-9">
         {badge && <Badge>{badge}</Badge>}
-        <h3 className="mt-4 font-display text-[2.6rem] leading-[0.95] tracking-[0.01em] text-paper uppercase sm:text-[3rem]">{title}</h3>
+        <h3 className="mt-4 font-display text-[2.6rem] leading-[0.95] tracking-[0.01em] text-balance text-paper uppercase sm:text-[3rem]">{title}</h3>
         <p className="mt-3 max-w-md text-[1.1rem] leading-relaxed text-paper/80">{text}</p>
       </div>
     </article>
@@ -53,7 +53,7 @@ function TextCard({ i, tone, title, text, badge, mark }: { i: number; tone: "ink
       </span>
       <Badge>{badge}</Badge>
       <div className="relative">
-        <h3 className="font-display text-[2.6rem] leading-[0.95] tracking-[0.01em] text-paper uppercase sm:text-[3rem]">{title}</h3>
+        <h3 className="font-display text-[2.6rem] leading-[0.95] tracking-[0.01em] text-balance text-paper uppercase sm:text-[3rem]">{title}</h3>
         <p className="mt-3 max-w-md text-[1.1rem] leading-relaxed text-paper/75">{text}</p>
       </div>
     </article>

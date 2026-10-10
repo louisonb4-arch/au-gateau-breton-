@@ -30,7 +30,7 @@ export function Spaces({ t }: { t: Dictionary["spaces"] }) {
                   />
                 </div>
                 <figcaption data-reveal style={stagger(i)} className="mt-6">
-                  <h3 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-paper uppercase">{item.title}</h3>
+                  <h3 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-balance text-paper uppercase">{item.title}</h3>
                   <p className="mt-2 max-w-md text-[1.08rem] leading-relaxed text-paper/65">{item.text}</p>
                 </figcaption>
               </figure>

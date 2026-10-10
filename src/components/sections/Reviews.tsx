@@ -20,7 +20,7 @@ export function Reviews({ lang, t, proofT }: { lang: Locale; t: Dictionary["revi
                   <Star key={i} className={`size-4 ${i < stars ? "fill-brass text-brass" : "text-brass"}`} />
                 ))}
               </span>
-              <span className="mt-1.5 block text-sm text-muted">
+              <span className="mt-1.5 block text-sm text-slate">
                 {proof.googleCount} {proofT.reviews} {proofT.google}
               </span>
             </span>
@@ -39,15 +39,17 @@ export function Reviews({ lang, t, proofT }: { lang: Locale; t: Dictionary["revi
           ))}
         </div>
 
-        <a
-          data-reveal
-          href={restaurant.reviewUrl}
-          target="_blank"
-          rel="noopener"
-          className="mt-10 inline-flex items-center gap-2 font-sans text-sm font-semibold text-bordeaux underline decoration-bordeaux/30 underline-offset-[6px] transition-[text-decoration-color] hover:decoration-bordeaux"
-        >
-          {t.leave} ↗
-        </a>
+        {/* The reveal sits on a wrapper so it does not override the link's own hover transition. */}
+        <div data-reveal className="mt-10">
+          <a
+            href={restaurant.reviewUrl}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex min-h-11 items-center gap-2 font-sans text-sm font-semibold text-bordeaux underline decoration-bordeaux/30 underline-offset-[6px] transition-[text-decoration-color] hover:decoration-bordeaux"
+          >
+            {t.leave}&nbsp;↗
+          </a>
+        </div>
       </div>
     </section>
   );

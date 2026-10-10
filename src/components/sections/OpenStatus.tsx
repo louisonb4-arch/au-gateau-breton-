@@ -38,7 +38,7 @@ export function OpenStatus({ lang, t }: { lang: Locale; t: Dictionary["status"] 
       }`}
     >
       <span className="relative flex size-2">
-        {open && <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#3f7d4e] opacity-60" />}
+        {open && <span className="absolute inline-flex size-full animate-ping rounded-full motion-reduce:hidden bg-[#3f7d4e] opacity-60" />}
         <span className={`relative inline-flex size-2 rounded-full ${open ? "bg-[#3f7d4e]" : "bg-terracotta"}`} />
       </span>
       {label}

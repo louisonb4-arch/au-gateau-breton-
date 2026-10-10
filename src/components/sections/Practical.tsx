@@ -64,10 +64,10 @@ export function Practical({ lang, t }: { lang: Locale; t: Dictionary["info"] }) 
               </div>
               <div>
                 <h3 className="mb-3 eyebrow text-bordeaux">{t.contact}</h3>
-                <a href={restaurant.phone.href} className="flex items-center gap-2 text-sm text-ink hover:text-bordeaux">
+                <a href={restaurant.phone.href} className="flex min-h-11 items-center gap-2 text-sm text-ink hover:text-bordeaux">
                   <Phone className="size-4 text-bordeaux" /> {restaurant.phone.display}
                 </a>
-                <a href={`mailto:${restaurant.email}`} className="mt-2 flex items-center gap-2 text-sm break-all text-ink hover:text-bordeaux">
+                <a href={`mailto:${restaurant.email}`} className="flex min-h-11 items-center gap-2 text-sm break-all text-ink hover:text-bordeaux">
                   <Mail className="size-4 shrink-0 text-bordeaux" /> {restaurant.email}
                 </a>
                 <ButtonLink href={restaurant.mapsUrl} target="_blank" rel="noopener" variant="outline" className="mt-5">

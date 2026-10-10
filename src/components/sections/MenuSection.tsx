@@ -15,7 +15,7 @@ function DishRow({ dish, lang, i }: { dish: Dish; lang: Locale; i: number }) {
         <h4 className="font-serif text-[1.3rem] leading-snug font-medium text-ink">
           {dish.name[lang]}
           {dish.tag && (
-            <span className="ml-2 inline-block -translate-y-0.5 rounded-full bg-brass/15 px-2 py-0.5 align-middle font-sans text-[9.5px] font-semibold tracking-[0.14em] text-[#7a5f17] uppercase">
+            <span className="ml-2 inline-block -translate-y-0.5 rounded-full bg-brass/15 px-2 py-0.5 align-middle font-sans text-[11px] font-semibold tracking-[0.12em] text-[#7a5f17] uppercase">
               {dish.tag[lang]}
             </span>
           )}
@@ -67,6 +67,15 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
     return () => window.removeEventListener("resize", measure);
   }, [measure, active]);
 
+  // On phones the strip scrolls sideways: keep the active tab centred in it (without moving the page).
+  useEffect(() => {
+    const list = listRef.current;
+    const tab = list?.querySelector<HTMLElement>('[aria-selected="true"]');
+    if (!list || !tab || list.scrollWidth <= list.clientWidth) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    list.scrollTo({ left: tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? "auto" : "smooth" });
+  }, [active]);
+
   // Arrow-key navigation between tabs (WAI-ARIA tabs pattern).
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
@@ -89,7 +98,7 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
           ref={listRef}
           role="tablist"
           aria-label={t.eyebrow}
-          className="no-scrollbar relative -mx-4 mt-14 flex gap-1 overflow-x-auto px-4 font-sans sm:mx-0 sm:w-fit sm:rounded-full sm:border sm:border-line sm:bg-cream/50 sm:p-1"
+          className="no-scrollbar relative -mx-4 mt-14 flex gap-1 overflow-x-auto px-4 py-1 font-sans sm:mx-0 sm:w-fit sm:rounded-full sm:border sm:border-line sm:bg-cream/50 sm:p-1"
         >
           {indicator && (
             <span
@@ -113,7 +122,7 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
                 onKeyDown={(e) => onKeyDown(e, i)}
                 className={`relative z-10 h-11 shrink-0 rounded-full px-5 text-sm font-medium transition-colors duration-300 ${
                   selected
-                    ? `bg-ink text-paper ${indicator ? "sm:bg-transparent" : ""}`
+                    ? `border border-ink bg-ink text-paper sm:border-transparent ${indicator ? "sm:bg-transparent" : ""}`
                     : "border border-line text-slate hover:text-ink sm:border-transparent"
                 }`}
               >
@@ -123,6 +132,10 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
           })}
         </div>
 
+        {/* Without JavaScript the tabs cannot switch, so every panel is shown. */}
+        <noscript>
+          <style>{'[role="tabpanel"][hidden]{display:block}[role="tablist"]{display:none}'}</style>
+        </noscript>
         {/* Every panel stays in the HTML (hidden when inactive) so search engines index the whole menu. */}
         {menuTabs.map((tab) => {
           let offset = 0;
@@ -136,7 +149,7 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
               className="mt-8 rounded-[1.75rem] border border-line bg-paper p-6 shadow-[0_30px_60px_-50px_rgba(38,44,51,0.5)] sm:p-10 lg:p-14"
             >
               {tab.intro && (
-                <p data-dish className="mb-10 max-w-xl font-serif text-[1.45rem] leading-snug text-bordeaux italic">
+                <p data-dish className="mb-10 max-w-xl font-serif text-[1.45rem] leading-snug text-pretty text-bordeaux italic">
                   {tab.intro[lang]}
                 </p>
               )}

@@ -4,7 +4,7 @@ export function Seal({ text, since, className = "" }: { text: string; since: str
     <div
       className={`relative grid size-32 place-items-center rounded-full bg-bordeaux text-paper shadow-[0_18px_40px_-16px_rgba(63,22,24,0.7)] ${className}`}
     >
-      <svg viewBox="0 0 120 120" className="absolute inset-0 size-full animate-spin-slow" aria-hidden="true">
+      <svg viewBox="0 0 120 120" className="absolute inset-0 size-full animate-spin-slow motion-reduce:animate-none" aria-hidden="true">
         <defs>
           <path id="seal-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
         </defs>

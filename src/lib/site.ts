@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { dictionaries } from "@/content/dictionary";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -11,6 +11,18 @@ const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL; // provided by Verc
 
 export const siteUrl = (configuredUrl ?? (vercelUrl ? `https://${vercelUrl}` : "http://localhost:3000")).replace(/\/$/, "");
 export const indexable = Boolean(configuredUrl);
+
+export const rootMetadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: "O’GB · Au Gâteau Breton",
+  formatDetection: { telephone: false },
+};
+
+export const rootViewport: Viewport = {
+  themeColor: "#f7f4ee",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export function pageMetadata(lang: Locale): Metadata {
   const t = dictionaries[lang].meta;

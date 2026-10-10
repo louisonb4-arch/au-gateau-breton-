@@ -17,8 +17,9 @@ const fr = {
     call: "Appeler",
     open: "Ouvrir le menu",
     close: "Fermer le menu",
-    switchTo: "English",
     switchLabel: "Switch to English",
+    mainNav: "Navigation principale",
+    mobileNav: "Menu de navigation",
   },
   status: {
     open: "Ouvert · service jusqu’à",
@@ -41,6 +42,7 @@ const fr = {
     imageAlt: "La véranda lumineuse du restaurant, tables dressées",
     facadeAlt: "La façade d’Au Gâteau Breton, rue du Docteur Bretonneau",
   },
+  marqueeControls: { pause: "Mettre en pause le défilement", play: "Relancer le défilement" },
   marquee: ["Fait maison", "Foie gras mi-cuit", "Pièce royale de bœuf", "Far breton revisité", "Frites fraîches", "Terrasse-jardin", "Depuis 1947"],
   proof: {
     google: "sur Google",
@@ -218,7 +220,7 @@ const fr = {
     days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
   },
   footer: {
-    tagline: "Restaurant fait maison à Chenonceaux, depuis 1947.",
+    tagline: "Restaurant fait maison à Chenonceaux, depuis 1947.",
     legal: "Mentions légales",
     rights: "Tous droits réservés.",
   },
@@ -243,8 +245,9 @@ const en: Dictionary = {
     call: "Call",
     open: "Open menu",
     close: "Close menu",
-    switchTo: "Français",
     switchLabel: "Passer en français",
+    mainNav: "Main navigation",
+    mobileNav: "Navigation menu",
   },
   status: {
     open: "Open · serving until",
@@ -267,6 +270,7 @@ const en: Dictionary = {
     imageAlt: "The restaurant’s light-filled conservatory with laid tables",
     facadeAlt: "The front of Au Gâteau Breton, rue du Docteur Bretonneau",
   },
+  marqueeControls: { pause: "Pause the scrolling text", play: "Resume the scrolling text" },
   marquee: ["Home-made", "Mi-cuit foie gras", "Royal cut of beef", "Far breton, reinvented", "Fresh-cut fries", "Garden terrace", "Since 1947"],
   proof: {
     google: "on Google",
@@ -282,7 +286,7 @@ const en: Dictionary = {
       {
         year: "1947",
         title: "A pastry chef from Lorient",
-        text: "After his hometown was bombed, Mr Girault, a pastry chef from Lorient in Brittany, settled in the Loire Valley. In Chenonceaux he opened « Au Gâteau Breton », a pastry shop and tea room he ran for over twenty years.",
+        text: "After his hometown was bombed, Mr Girault, a pastry chef from Lorient in Brittany, settled in the Loire Valley. In Chenonceaux he opened “Au Gâteau Breton”, a pastry shop and tea room he ran for over twenty years.",
       },
       {
         year: "40 years",
@@ -416,7 +420,7 @@ const en: Dictionary = {
   stay: {
     eyebrow: "Bed & breakfast",
     title: "Make a night of it: *stay with us*",
-    lead: "At the same address, our B&B « O’GB La Renaissance » welcomes you in the heart of the village, a short walk from the château. Have dinner, head upstairs, and visit Chenonceau as soon as it opens.",
+    lead: "At the same address, our B&B “O’GB La Renaissance” welcomes you in the heart of the village, a short walk from the château. Have dinner, head upstairs, and visit Chenonceau as soon as it opens.",
     features: ["Air-conditioned room", "Private bathroom", "Free Wi-Fi", "Garden & terrace"],
     cta: "Book the room",
     alt: "The O’GB La Renaissance guest room",
@@ -428,7 +432,7 @@ const en: Dictionary = {
   },
   info: {
     eyebrow: "Plan your visit",
-    title: "*Find* us",
+    title: "Find *us*",
     hours: "Kitchen hours",
     closed: "Closed",
     today: "Today",

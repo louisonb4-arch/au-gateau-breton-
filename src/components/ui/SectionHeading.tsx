@@ -35,7 +35,7 @@ export function SectionHeading({ eyebrow, title, lead, tone = "dark", className 
         <p
           data-reveal
           style={stagger(2)}
-          className={`mt-6 max-w-2xl text-[1.3rem] leading-relaxed ${light ? "text-paper/75" : "text-slate"}`}
+          className={`mt-6 max-w-2xl text-[1.3rem] leading-relaxed text-pretty ${light ? "text-paper/75" : "text-slate"}`}
         >
           {lead}
         </p>
