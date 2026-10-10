@@ -27,7 +27,7 @@ function Step({ n, label, children }: { n: number; label: string; children: Reac
   return (
     <fieldset className="min-w-0 border-t border-line pt-6 first:border-t-0 first:pt-0">
       <legend className="mb-4 flex items-center gap-3 text-sm font-semibold text-ink">
-        <span className="grid size-6 place-items-center rounded-full bg-bordeaux text-[11px] text-paper">{n}</span>
+        <span className="grid size-7 place-items-center rounded-full bg-bordeaux font-display text-[15px] text-paper">{n}</span>
         {label}
       </legend>
       {children}
@@ -36,7 +36,7 @@ function Step({ n, label, children }: { n: number; label: string; children: Reac
 }
 
 const chip =
-  "rounded-xl border text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40 aria-pressed:border-bordeaux aria-pressed:bg-bordeaux aria-pressed:text-paper";
+  "rounded-xl border text-sm transition-[color,background-color,border-color,transform] duration-300 ease-out-soft active:scale-95 disabled:cursor-not-allowed disabled:opacity-35 aria-pressed:border-bordeaux aria-pressed:bg-bordeaux aria-pressed:text-paper aria-pressed:shadow-[0_10px_20px_-12px_rgba(101,13,42,0.8)]";
 
 // The dictionary is read here rather than passed as a prop: it contains formatting functions,
 // which cannot cross the server → client boundary.
@@ -116,16 +116,16 @@ export function ReservationForm({ lang }: { lang: Locale }) {
   if (status === "pending" || status === "success") {
     const success = status === "success";
     return (
-      <div className="flex min-h-[32rem] flex-col items-start justify-center gap-6 p-2 sm:p-4" role="status">
+      <div className="flex min-h-[32rem] animate-[fade-up_0.8s_var(--ease-out-soft)_both] flex-col items-start justify-center gap-6 p-2 font-sans sm:p-4" role="status">
         <span className="grid size-14 place-items-center rounded-full bg-bordeaux-soft text-bordeaux">
           <CalendarCheck className="size-7" />
         </span>
         <div>
-          <h3 className="text-3xl font-medium text-ink">{success ? t.successTitle : t.pendingTitle}</h3>
+          <h3 className="font-display text-[3rem] leading-[0.95] tracking-[0.01em] text-ink uppercase">{success ? t.successTitle : t.pendingTitle}</h3>
           <p className="mt-3 inline-block rounded-full bg-cream px-4 py-1.5 text-sm font-medium text-ink first-letter:uppercase">
             {summary}
           </p>
-          <p className="mt-5 max-w-md leading-relaxed text-muted">
+          <p className="mt-5 max-w-md font-serif text-[1.15rem] leading-relaxed text-slate">
             {success ? `${t.successText} ${reference}` : t.pendingText}
           </p>
         </div>
@@ -149,7 +149,7 @@ export function ReservationForm({ lang }: { lang: Locale }) {
     }`;
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-6">
+    <form onSubmit={onSubmit} noValidate className="space-y-7 font-sans">
       {!reservationEnabled && (
         <p className="rounded-2xl bg-cream px-4 py-3 text-sm leading-relaxed text-slate">
           {t.soon}{" "}
@@ -175,7 +175,7 @@ export function ReservationForm({ lang }: { lang: Locale }) {
               className={`${chip} flex h-[4.75rem] w-16 shrink-0 snap-start flex-col items-center justify-center gap-0.5 border-line bg-paper hover:border-ink/40`}
             >
               <span className="text-[11px] tracking-wide uppercase opacity-70">{i === 0 ? t.today : weekday(d.iso)}</span>
-              <span className="font-serif text-xl leading-none font-medium">{dayNum(d.iso)}</span>
+              <span className="font-display text-[1.9rem] leading-none">{dayNum(d.iso)}</span>
               <span className="text-[11px] opacity-70">{d.closed ? t.closed : month(d.iso)}</span>
             </button>
           ))}
@@ -238,7 +238,7 @@ export function ReservationForm({ lang }: { lang: Locale }) {
             >
               <Minus className="size-4" />
             </button>
-            <output aria-live="polite" className="min-w-28 text-center font-serif text-xl font-medium text-ink">
+            <output aria-live="polite" className="min-w-32 text-center font-display text-[1.9rem] leading-none tracking-[0.02em] text-ink uppercase">
               {t.guestsUnit(guests)}
             </output>
             <button

@@ -30,11 +30,11 @@ export default function LegalPage() {
       <Header lang="fr" t={t.nav} />
       <main className="bg-paper pt-[4.5rem]">
         <div className="container-site max-w-3xl py-16 sm:py-24">
-          <h1 className="text-4xl font-medium text-ink sm:text-5xl">Mentions légales</h1>
+          <h1 className="title-caps text-[4rem] text-ink sm:text-[5.5rem]">Mentions légales</h1>
 
           <section className="mt-12">
-            <h2 className="text-2xl font-medium text-ink">Éditeur du site</h2>
-            <dl className="mt-6 divide-y divide-line border-y border-line text-sm">
+            <h2 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-ink uppercase">Éditeur du site</h2>
+            <dl className="mt-6 divide-y divide-line border-y border-line font-sans text-sm">
               {rows.map(([k, v]) => (
                 <div key={k} className="grid gap-1 py-3 sm:grid-cols-[16rem_1fr]">
                   <dt className="text-muted">{k}</dt>
@@ -45,7 +45,7 @@ export default function LegalPage() {
           </section>
 
           <section className="mt-12 space-y-4 leading-relaxed text-slate">
-            <h2 className="text-2xl font-medium text-ink">Données personnelles</h2>
+            <h2 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-ink uppercase">Données personnelles</h2>
             <p>
               Les informations transmises via le formulaire de réservation (nom, téléphone, e-mail, précisions) sont
               utilisées uniquement pour gérer votre réservation. Elles ne sont ni vendues ni cédées à des tiers et sont
@@ -62,7 +62,7 @@ export default function LegalPage() {
           </section>
 
           <section className="mt-12 space-y-4 leading-relaxed text-slate">
-            <h2 className="text-2xl font-medium text-ink">Cookies</h2>
+            <h2 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-ink uppercase">Cookies</h2>
             <p>
               Ce site n&rsquo;utilise aucun cookie publicitaire ni de mesure d&rsquo;audience. La carte interactive est
               fournie par OpenStreetMap, qui ne dépose pas de cookie de suivi.
@@ -70,7 +70,7 @@ export default function LegalPage() {
           </section>
 
           <section className="mt-12 space-y-4 leading-relaxed text-slate">
-            <h2 className="text-2xl font-medium text-ink">Crédits</h2>
+            <h2 className="font-display text-[2.2rem] leading-none tracking-[0.02em] text-ink uppercase">Crédits</h2>
             <p>Photographies : {restaurant.name}. Toute reproduction sans autorisation est interdite.</p>
           </section>
         </div>

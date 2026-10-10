@@ -6,7 +6,7 @@ import type { L } from "@/lib/i18n";
  */
 export const restaurant = {
   name: "Au Gâteau Breton",
-  shortName: "O'GB",
+  shortName: "O’GB",
   foundedYear: 1947,
   phone: { display: "02 47 23 90 14", href: "tel:+33247239014", e164: "+33247239014" },
   email: "augateaubreton@orange.fr",
@@ -37,9 +37,9 @@ export const proof = {
   googleRating: "4,0",
   googleCount: "868",
   awards: [
-    { title: { fr: "Meilleurs steaks", en: "Best steaks" }, source: "Restaurant Guru 2025" },
-    { title: { fr: "Meilleur foie gras", en: "Best foie gras" }, source: "Restaurant Guru 2025" },
-  ] satisfies { title: L; source: string }[],
+    { title: { fr: "Meilleurs steaks", en: "Best steaks" }, source: "Restaurant Guru", year: "2025" },
+    { title: { fr: "Meilleur foie gras", en: "Best foie gras" }, source: "Restaurant Guru", year: "2025" },
+  ] satisfies { title: L; source: string; year: string }[],
 };
 
 export const payments: L[] = [

@@ -1,42 +1,50 @@
 import Image from "next/image";
 import type { Dictionary } from "@/content/dictionary";
+import { stagger } from "@/lib/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Story({ t }: { t: Dictionary }) {
   const s = t.story;
   return (
-    <section id="histoire" className="bg-paper py-20 sm:py-28" aria-labelledby="story-title">
-      <div className="container-site grid gap-14 lg:grid-cols-2 lg:gap-20">
+    <section id="histoire" className="bg-paper py-24 sm:py-32" aria-labelledby="story-title">
+      <div className="container-site grid gap-16 lg:grid-cols-2 lg:gap-20">
         <div>
           <SectionHeading id="story-title" eyebrow={s.eyebrow} title={s.title} />
-          <figure className="mt-10">
-            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl bg-line">
+          <figure className="mt-12">
+            <div data-reveal="image" className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-cream">
               <Image
                 src="/images/facade.webp"
                 alt={t.hero.facadeAlt}
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
+                className="parallax object-cover"
               />
             </div>
-            <figcaption className="mt-3 text-xs tracking-wide text-muted">{t.hero.facadeAlt}</figcaption>
+            <figcaption className="mt-4 font-serif text-base text-muted italic">{t.hero.facadeAlt}</figcaption>
           </figure>
         </div>
 
-        <div className="lg:pt-24">
-          <ol className="relative space-y-12 border-l border-line pl-8 sm:pl-10">
-            {s.steps.map((step) => (
-              <li key={step.year} className="relative">
-                <span className="absolute top-2 -left-[calc(2rem+5px)] size-2.5 rounded-full bg-bordeaux ring-4 ring-paper sm:-left-[calc(2.5rem+5px)]" />
-                <p className="font-serif text-3xl font-medium text-brass italic">{step.year}</p>
-                <h3 className="mt-2 text-xl font-medium text-ink">{step.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{step.text}</p>
+        <div className="lg:pt-28">
+          <ol className="relative space-y-14 pl-10 sm:pl-14">
+            <span data-reveal="line" aria-hidden className="absolute top-3 bottom-3 left-0 w-px bg-line" />
+            {s.steps.map((step, i) => (
+              <li key={step.year} data-reveal style={stagger(i)} className="relative">
+                <span
+                  aria-hidden
+                  className="absolute top-5 -left-10 size-2.5 -translate-x-1/2 rounded-full bg-bordeaux ring-[6px] ring-paper sm:-left-14"
+                />
+                <p className="font-display text-[3.6rem] leading-none tracking-[0.01em] text-brass uppercase">{step.year}</p>
+                <h3 className="mt-3 font-serif text-[1.6rem] leading-tight font-medium text-ink">{step.title}</h3>
+                <p className="mt-3 text-[1.15rem] leading-relaxed text-slate">{step.text}</p>
               </li>
             ))}
           </ol>
-          <blockquote className="mt-14 rounded-3xl bg-cream p-8 sm:p-10">
-            <p className="font-serif text-2xl leading-snug text-ink italic">{s.quote}</p>
-            <footer className="mt-4 text-sm text-muted">— {s.quoteAuthor}</footer>
+          <blockquote data-reveal className="relative mt-16 overflow-hidden rounded-[1.75rem] bg-bordeaux px-8 py-10 text-paper sm:px-12">
+            <span aria-hidden className="pointer-events-none absolute -top-10 -left-2 font-serif text-[11rem] leading-none text-paper/10">
+              «
+            </span>
+            <p className="relative font-serif text-[1.65rem] leading-snug italic">{s.quote}</p>
+            <footer className="relative mt-5 eyebrow text-brass-light">{s.quoteAuthor}</footer>
           </blockquote>
         </div>
       </div>

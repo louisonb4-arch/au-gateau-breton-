@@ -14,7 +14,7 @@ const starters = {
   tartare: {
     name: { fr: "Tartare de Saint-Jacques & crevettes", en: "Scallop & prawn tartare" },
     description: {
-      fr: "Suprême d'agrumes, gel pamplemousse & sorbet acidulé",
+      fr: "Suprême d’agrumes, gel pamplemousse & sorbet acidulé",
       en: "Citrus segments, grapefruit gel & tangy sorbet",
     },
   },
@@ -50,8 +50,8 @@ const mains = {
   boeuf: {
     name: { fr: "Pièce royale de bœuf en filet", en: "Royal beef fillet" },
     description: {
-      fr: "Poêlée forestière, crémeux de carottes & sauce selon l'humeur du chef",
-      en: "Wild mushroom pan-fry, carrot cream & the chef's sauce of the day",
+      fr: "Poêlée forestière, crémeux de carottes & sauce selon l’humeur du chef",
+      en: "Wild mushroom pan-fry, carrot cream & the chef’s sauce of the day",
     },
     tag: award,
   },
@@ -66,8 +66,8 @@ const desserts = {
     },
   },
   citron: {
-    name: { fr: "Le citron meringué du chef", en: "The chef's lemon meringue" },
-    description: { fr: "Meringue & crème citron — le secret du chef", en: "Meringue & lemon cream — the chef's secret" },
+    name: { fr: "Le citron meringué du chef", en: "The chef’s lemon meringue" },
+    description: { fr: "Meringue & crème citron — le secret du chef", en: "Meringue & lemon cream — the chef’s secret" },
   },
   mojito: {
     name: { fr: "Mojito revisité", en: "Mojito, reinvented" },
@@ -79,7 +79,7 @@ const desserts = {
 } satisfies Record<string, Dish>;
 
 const dessertNote: L = {
-  fr: "Merci de choisir votre dessert en début de repas : préparé à la minute, il demande sinon 15 minutes d'attente.",
+  fr: "Merci de choisir votre dessert en début de repas : préparé à la minute, il demande sinon 15 minutes d’attente.",
   en: "Please choose your dessert when ordering: it is made to order and otherwise takes at least 15 minutes.",
 };
 
@@ -176,7 +176,7 @@ export const menuTabs: MenuTab[] = [
       {
         title: { fr: "Menu du jour", en: "Menu of the day" },
         note: {
-          fr: "Selon le marché, à l'ardoise. En semaine, hors week-end et jours fériés.",
+          fr: "Selon le marché, à l’ardoise. En semaine, hors week-end et jours fériés.",
           en: "Market-driven, on the chalkboard. Weekdays only, excluding weekends and bank holidays.",
         },
         dishes: [
@@ -185,7 +185,7 @@ export const menuTabs: MenuTab[] = [
         ],
       },
       {
-        title: { fr: "L'idée du chef", en: "The chef's idea" },
+        title: { fr: "L’idée du chef", en: "The chef’s idea" },
         note: { fr: "Uniquement le midi.", en: "Lunchtime only." },
         dishes: [
           {
@@ -223,13 +223,13 @@ export const menuTabs: MenuTab[] = [
     label: { fr: "Enfants & extras", en: "Kids & sides" },
     groups: [
       {
-        title: { fr: "Menu « P'tit Bout »", en: "« P'tit Bout » kids' menu" },
+        title: { fr: "Menu « P’tit Bout »", en: "« P’tit Bout » kids’ menu" },
         note: { fr: "Pour les moins de 12 ans.", en: "For children under 12." },
         dishes: [
           {
-            name: { fr: "Mini tacos du chef ou suggestion du jour", en: "Chef's mini tacos or dish of the day" },
+            name: { fr: "Mini tacos du chef ou suggestion du jour", en: "Chef’s mini tacos or dish of the day" },
             description: {
-              fr: "Roulé à l'effiloché de canard, frites maison & coupe glacée",
+              fr: "Roulé à l’effiloché de canard, frites maison & coupe glacée",
               en: "Pulled duck wrap, home-made fries & ice cream",
             },
             price: "12,90 €",

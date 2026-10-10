@@ -1,33 +1,34 @@
-import { Award, House, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import type { Dictionary } from "@/content/dictionary";
 import { proof } from "@/content/restaurant";
 import type { Locale } from "@/lib/i18n";
+import { stagger } from "@/lib/motion";
 
 /** Trust strip right under the hero: rating, awards, home-made promise. */
 export function ProofBar({ lang, t }: { lang: Locale; t: Dictionary["proof"] }) {
   const items = [
-    {
-      icon: <Star className="size-5 fill-brass text-brass" />,
-      title: `${proof.googleRating}/5 ${t.google}`,
-      sub: `${proof.googleCount} ${t.reviews}`,
-    },
-    ...proof.awards.map((a) => ({
-      icon: <Award className="size-5 text-bordeaux" />,
-      title: a.title[lang],
-      sub: a.source,
-    })),
-    { icon: <House className="size-5 text-bordeaux" />, title: t.homemade, sub: t.homemadeSub },
+    { big: proof.googleRating, title: t.google, sub: `${proof.googleCount} ${t.reviews}`, stars: true },
+    ...proof.awards.map((a) => ({ big: a.year, title: a.title[lang], sub: a.source, stars: false })),
+    { big: t.homemadeBig, title: t.homemade, sub: t.homemadeSub, stars: false },
   ];
 
   return (
-    <div className="border-y border-line bg-paper">
-      <ul className="container-site grid grid-cols-2 divide-line lg:grid-cols-4 lg:divide-x">
-        {items.map((item) => (
-          <li key={item.title} className="flex items-center gap-3.5 py-5 lg:justify-center lg:px-6">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-cream">{item.icon}</span>
-            <span className="leading-tight">
-              <span className="block text-sm font-semibold text-ink">{item.title}</span>
-              <span className="block text-xs text-muted">{item.sub}</span>
+    <div className="border-y border-line bg-cream/60">
+      <ul className="container-site grid grid-cols-2 gap-y-2 lg:grid-cols-4">
+        {items.map((item, i) => (
+          <li
+            key={item.title}
+            data-reveal
+            style={stagger(i)}
+            className={`flex items-center gap-4 py-6 lg:justify-center lg:px-4 ${i > 0 ? "lg:border-l lg:border-line" : ""}`}
+          >
+            <span className="font-display text-[2.6rem] leading-none text-bordeaux">{item.big}</span>
+            <span className="font-sans leading-tight">
+              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-ink">
+                {item.stars && <Star className="size-3.5 fill-brass text-brass" aria-hidden />}
+                {item.title}
+              </span>
+              <span className="mt-0.5 block text-xs text-muted">{item.sub}</span>
             </span>
           </li>
         ))}

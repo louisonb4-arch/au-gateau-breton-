@@ -2,31 +2,38 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Dictionary } from "@/content/dictionary";
 import type { Locale } from "@/lib/i18n";
-import { rich } from "@/lib/rich";
+import { delay } from "@/lib/motion";
+import { words } from "@/lib/rich";
 import { ButtonLink } from "@/components/ui/Button";
-import { BrickMark } from "@/components/ui/BrickMark";
+import { EnamelPlaque } from "@/components/ui/EnamelPlaque";
 import { Seal } from "@/components/ui/Seal";
 import { OpenStatus } from "./OpenStatus";
 
 export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
   const h = t.hero;
+  const topWordCount = h.titleTop.split(" ").length;
   return (
-    <section className="relative overflow-hidden bg-cream pt-[4.5rem]" aria-labelledby="hero-title">
-      <div className="container-site grid items-center gap-12 pt-10 pb-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-16 lg:pb-24">
-        <div>
-          <OpenStatus lang={lang} t={t.status} />
-          <p className="mt-8 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] text-bordeaux uppercase">
-            <BrickMark />
-            {h.eyebrow}
-          </p>
-          <h1
-            id="hero-title"
-            className="mt-5 text-[2.85rem] leading-[0.98] font-medium tracking-[-0.025em] text-ink sm:text-6xl lg:text-[4.75rem] [&_em]:font-normal [&_em]:text-bordeaux [&_em]:italic"
-          >
-            {rich(h.title)}
+    <section className="hero-in relative overflow-hidden bg-paper pt-[4.5rem]" aria-labelledby="hero-title">
+      <div className="container-site grid items-center gap-14 pt-10 pb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:pt-14 lg:pb-28">
+        <div className="relative z-10">
+          <div data-hero style={delay(0.05)} className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <EnamelPlaque label={h.plaque} />
+            <span className="eyebrow text-slate">{h.eyebrow}</span>
+          </div>
+
+          <h1 id="hero-title" className="mt-8">
+            <span className="title-caps block text-[5.4rem] leading-[0.84] text-ink sm:text-[7.25rem] lg:text-[8.6rem]">
+              {words(h.titleTop)}
+            </span>
+            <span className="mt-2 block font-serif text-[2.6rem] leading-[1.05] tracking-[-0.015em] text-bordeaux italic sm:text-[3.4rem] lg:text-[3.9rem]">
+              {words(h.titleBottom, topWordCount)}
+            </span>
           </h1>
-          <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-muted sm:text-lg">{h.lead}</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+          <p data-hero style={delay(0.75)} className="mt-8 max-w-xl text-[1.32rem] leading-relaxed text-slate">
+            {h.lead}
+          </p>
+          <div data-hero style={delay(0.9)} className="mt-10 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#reserver" size="lg">
               {h.ctaBook}
               <ArrowRight className="size-4" />
@@ -35,10 +42,16 @@ export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
               {h.ctaMenu}
             </ButtonLink>
           </div>
+          <div data-hero style={delay(1.05)} className="mt-8">
+            <OpenStatus lang={lang} t={t.status} />
+          </div>
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-3xl bg-line shadow-[0_30px_60px_-30px_rgba(74,17,27,0.45)]">
+          <div
+            data-hero-image
+            className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[2rem] bg-cream shadow-[0_40px_80px_-40px_rgba(63,22,24,0.55)]"
+          >
             <Image
               src="/images/veranda.webp"
               alt={h.imageAlt}
@@ -48,12 +61,16 @@ export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
               className="object-cover object-[50%_70%]"
             />
           </div>
-          <div className="absolute -bottom-6 -left-2 hidden w-36 overflow-hidden rounded-2xl border-4 border-cream shadow-xl sm:block lg:-left-10 lg:w-44">
+          <div
+            data-hero
+            style={delay(1.2)}
+            className="absolute -bottom-7 -left-3 hidden w-40 rotate-[-3deg] overflow-hidden rounded-2xl border-[5px] border-paper shadow-xl sm:block lg:-left-12 lg:w-48"
+          >
             <div className="relative aspect-[4/3]">
-              <Image src="/images/facade.webp" alt={h.facadeAlt} fill sizes="180px" className="object-cover" />
+              <Image src="/images/facade.webp" alt={h.facadeAlt} fill sizes="200px" className="object-cover" />
             </div>
           </div>
-          <div className="absolute -top-4 -right-2 sm:-right-6 lg:top-12 lg:-right-12">
+          <div data-hero-pop className="absolute -top-4 -right-2 sm:-right-6 lg:top-14 lg:-right-10">
             <Seal text={h.seal} since={h.since} />
           </div>
         </div>

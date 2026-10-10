@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { Dictionary } from "@/content/dictionary";
 import { amenities, payments, restaurant, type AmenityIcon } from "@/content/restaurant";
 import type { Locale } from "@/lib/i18n";
+import { stagger } from "@/lib/motion";
 import { ButtonLink } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HoursTable } from "./HoursTable";
@@ -22,8 +23,8 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${lng - 0.0
 
 function Card({ title, children, className = "" }: { title: string; children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-3xl border border-line bg-paper p-6 sm:p-8 ${className}`}>
-      <h3 className="mb-5 font-sans text-xs font-semibold tracking-[0.2em] text-bordeaux uppercase">{title}</h3>
+    <div data-reveal className={`rounded-[1.75rem] border border-line bg-paper p-6 font-sans sm:p-8 ${className}`}>
+      <h3 className="mb-5 eyebrow text-bordeaux">{title}</h3>
       {children}
     </div>
   );
@@ -32,16 +33,16 @@ function Card({ title, children, className = "" }: { title: string; children: Re
 export function Practical({ lang, t }: { lang: Locale; t: Dictionary["info"] }) {
   const { address } = restaurant;
   return (
-    <section id="infos" className="bg-paper py-20 sm:py-28" aria-labelledby="info-title">
+    <section id="infos" className="bg-paper py-24 sm:py-32" aria-labelledby="info-title">
       <div className="container-site">
         <SectionHeading id="info-title" eyebrow={t.eyebrow} title={t.title} />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_1.35fr]">
+        <div className="mt-14 grid gap-5 lg:grid-cols-[1fr_1.35fr]">
           <Card title={t.hours}>
             <HoursTable lang={lang} t={t} />
           </Card>
 
-          <div className="flex flex-col overflow-hidden rounded-3xl border border-line bg-paper">
+          <div data-reveal style={stagger(1)} className="flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-paper font-sans">
             <iframe
               title={`${restaurant.name} — ${address.city}`}
               src={mapSrc}
@@ -50,7 +51,7 @@ export function Practical({ lang, t }: { lang: Locale; t: Dictionary["info"] }) 
             />
             <div className="grid gap-6 p-6 sm:grid-cols-2 sm:p-8">
               <div>
-                <h3 className="mb-3 font-sans text-xs font-semibold tracking-[0.2em] text-bordeaux uppercase">{t.address}</h3>
+                <h3 className="mb-3 eyebrow text-bordeaux">{t.address}</h3>
                 <address className="flex gap-2 text-sm leading-relaxed text-ink not-italic">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-bordeaux" />
                   <span>
@@ -59,10 +60,10 @@ export function Practical({ lang, t }: { lang: Locale; t: Dictionary["info"] }) 
                     {address.postalCode} {address.city}
                   </span>
                 </address>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{t.access}</p>
+                <p className="mt-3 font-serif text-[1.05rem] leading-relaxed text-slate italic">{t.access}</p>
               </div>
               <div>
-                <h3 className="mb-3 font-sans text-xs font-semibold tracking-[0.2em] text-bordeaux uppercase">{t.contact}</h3>
+                <h3 className="mb-3 eyebrow text-bordeaux">{t.contact}</h3>
                 <a href={restaurant.phone.href} className="flex items-center gap-2 text-sm text-ink hover:text-bordeaux">
                   <Phone className="size-4 text-bordeaux" /> {restaurant.phone.display}
                 </a>

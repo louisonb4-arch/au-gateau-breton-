@@ -8,12 +8,12 @@ import { ReservationForm } from "./ReservationForm";
 
 export function Reservation({ lang, t }: { lang: Locale; t: Dictionary["reservation"] }) {
   return (
-    <section id="reserver" className="bg-cream py-20 sm:py-28" aria-labelledby="reservation-title">
+    <section id="reserver" className="bg-cream py-24 sm:py-32" aria-labelledby="reservation-title">
       <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <div className="flex flex-col">
           <SectionHeading id="reservation-title" eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
-          <div className="mt-10 space-y-4">
+          <div data-reveal className="mt-10 space-y-4 font-sans">
             <a
               href={restaurant.phone.href}
               className="group flex items-center gap-4 rounded-2xl border border-line bg-paper p-5 transition-colors hover:border-bordeaux"
@@ -23,7 +23,7 @@ export function Reservation({ lang, t }: { lang: Locale; t: Dictionary["reservat
               </span>
               <span>
                 <span className="block text-sm text-muted">{t.phoneLead}</span>
-                <span className="block font-serif text-2xl font-medium text-ink group-hover:text-bordeaux">
+                <span className="block font-display text-[2.2rem] leading-none tracking-[0.03em] text-ink transition-colors group-hover:text-bordeaux">
                   {restaurant.phone.display}
                 </span>
               </span>
@@ -42,12 +42,12 @@ export function Reservation({ lang, t }: { lang: Locale; t: Dictionary["reservat
             </a>
           </div>
 
-          <div className="relative mt-10 hidden flex-1 overflow-hidden rounded-3xl lg:block">
+          <div data-reveal="image" className="relative mt-10 hidden flex-1 overflow-hidden rounded-[1.75rem] lg:block">
             <Image src="/images/terrasse-table.webp" alt="" fill sizes="35vw" className="object-cover" />
           </div>
         </div>
 
-        <div className="min-w-0 rounded-[2rem] border border-line bg-paper p-5 shadow-[0_30px_80px_-40px_rgba(31,34,38,0.35)] sm:p-8 lg:p-10">
+        <div data-reveal className="min-w-0 rounded-[2rem] border border-line bg-paper p-5 shadow-[0_30px_80px_-40px_rgba(31,34,38,0.35)] sm:p-8 lg:p-10">
           <ReservationForm lang={lang} />
         </div>
       </div>

@@ -33,7 +33,7 @@ export function OpenStatus({ lang, t }: { lang: Locale; t: Dictionary["status"] 
   return (
     <p
       aria-live="polite"
-      className={`inline-flex min-h-8 items-center gap-2.5 rounded-full border border-ink/10 bg-paper/70 px-3.5 py-1.5 text-[13px] text-slate transition-opacity duration-500 ${
+      className={`inline-flex min-h-8 items-center gap-2.5 font-sans text-[13px] font-medium text-slate transition-opacity duration-500 ${
         status ? "opacity-100" : "opacity-0"
       }`}
     >

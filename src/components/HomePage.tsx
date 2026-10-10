@@ -1,6 +1,7 @@
 import { dictionaries } from "@/content/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { Footer } from "@/components/layout/Footer";
+import { Marquee } from "@/components/ui/Marquee";
 import { Header } from "@/components/layout/Header";
 import { MobileBar } from "@/components/layout/MobileBar";
 import { Groups } from "@/components/sections/Groups";
@@ -26,6 +27,7 @@ export function HomePage({ lang }: { lang: Locale }) {
         <ProofBar lang={lang} t={t.proof} />
         <Story t={t} />
         <Signatures lang={lang} t={t.signatures} />
+        <Marquee items={t.marquee} />
         <MenuSection lang={lang} t={t.menu} />
         <Spaces t={t.spaces} />
         <Reservation lang={lang} t={t.reservation} />

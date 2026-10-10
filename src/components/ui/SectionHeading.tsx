@@ -1,42 +1,44 @@
 import type { ReactNode } from "react";
-import { rich } from "@/lib/rich";
+import { stagger } from "@/lib/motion";
+import { words } from "@/lib/rich";
 import { BrickMark } from "./BrickMark";
 
 type Props = {
   eyebrow: string;
-  /** Plain string; wrap a word in *asterisks* to accent it. */
+  /** Plain string; wrap words in *asterisks* to set them in Garamond italic. */
   title: string;
   lead?: ReactNode;
   tone?: "dark" | "light";
-  align?: "left" | "center";
   className?: string;
   id?: string;
 };
 
-/** Eyebrow + serif title + optional lead, shared by every section. */
-export function SectionHeading({ eyebrow, title, lead, tone = "dark", align = "left", className = "", id }: Props) {
-  const center = align === "center";
+/** Eyebrow + sign-painter title + optional lead, shared by every section. */
+export function SectionHeading({ eyebrow, title, lead, tone = "dark", className = "", id }: Props) {
   const light = tone === "light";
   return (
-    <div className={`${center ? "mx-auto text-center" : ""} max-w-2xl ${className}`}>
-      <p
-        className={`flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase ${
-          center ? "justify-center" : ""
-        } ${light ? "text-brass-light" : "text-bordeaux"}`}
-      >
-        <BrickMark className={light ? "text-brass-light" : "text-bordeaux"} />
+    <div className={`max-w-3xl ${className}`}>
+      <p data-reveal className={`eyebrow flex items-center gap-3 ${light ? "text-brass-light" : "text-bordeaux"}`}>
+        <BrickMark />
         {eyebrow}
       </p>
       <h2
         id={id}
-        className={`mt-4 text-[2rem] leading-[1.08] font-medium tracking-tight sm:text-[2.6rem] ${
+        data-reveal="words"
+        className={`title-caps mt-5 text-[3.1rem] sm:text-[4.2rem] lg:text-[5rem] ${
           light ? "text-paper [&_em]:text-brass-light" : "text-ink [&_em]:text-bordeaux"
-        } [&_em]:font-normal [&_em]:italic`}
+        }`}
       >
-        {rich(title)}
+        {words(title)}
       </h2>
       {lead && (
-        <p className={`mt-5 text-base leading-relaxed sm:text-lg ${light ? "text-paper/75" : "text-muted"}`}>{lead}</p>
+        <p
+          data-reveal
+          style={stagger(2)}
+          className={`mt-6 max-w-2xl text-[1.3rem] leading-relaxed ${light ? "text-paper/75" : "text-slate"}`}
+        >
+          {lead}
+        </p>
       )}
     </div>
   );

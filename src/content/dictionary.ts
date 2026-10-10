@@ -2,9 +2,9 @@ import type { Locale } from "@/lib/i18n";
 
 const fr = {
   meta: {
-    title: "O'GB · Au Gâteau Breton — Restaurant fait maison à Chenonceaux, depuis 1947",
+    title: "O’GB · Au Gâteau Breton — Restaurant fait maison à Chenonceaux, depuis 1947",
     description:
-      "Restaurant de cuisine française faite maison à quelques minutes à pied du Château de Chenonceau. Véranda, terrasse-jardin, salon privé et chambre d'hôtes. Réservez votre table.",
+      "Restaurant de cuisine française faite maison à quelques minutes à pied du Château de Chenonceau. Véranda, terrasse-jardin, salon privé et chambre d’hôtes. Réservez votre table.",
   },
   nav: {
     story: "Histoire",
@@ -21,38 +21,42 @@ const fr = {
     switchLabel: "Switch to English",
   },
   status: {
-    open: "Ouvert · service jusqu'à",
-    later: "Ouvre aujourd'hui à",
-    closed: "Fermé aujourd'hui",
+    open: "Ouvert · service jusqu’à",
+    later: "Ouvre aujourd’hui à",
+    closed: "Fermé aujourd’hui",
     nextOpen: "réouverture",
     lunch: "midi",
     dinner: "soir",
   },
   hero: {
     eyebrow: "Chenonceaux · Maison depuis 1947",
-    title: "La table maison, *à deux pas* du château.",
+    plaque: "Restaurant",
+    titleTop: "La table maison",
+    titleBottom: "à deux pas du château.",
     lead: "Cuisine française faite maison, produits du terroir et bœuf français, servis dans une maison de famille à quelques minutes à pied du Château de Chenonceau.",
     ctaBook: "Réserver une table",
     ctaMenu: "Découvrir la carte",
     seal: "Au Gâteau Breton · Chenonceaux · Maison fondée en 1947 · ",
     since: "Depuis",
     imageAlt: "La véranda lumineuse du restaurant, tables dressées",
-    facadeAlt: "La façade d'Au Gâteau Breton, rue du Docteur Bretonneau",
+    facadeAlt: "La façade d’Au Gâteau Breton, rue du Docteur Bretonneau",
   },
+  marquee: ["Fait maison", "Foie gras mi-cuit", "Pièce royale de bœuf", "Far breton revisité", "Frites fraîches", "Terrasse-jardin", "Depuis 1947"],
   proof: {
     google: "sur Google",
     reviews: "avis",
-    homemade: "100 % fait maison",
+    homemadeBig: "100 %",
+    homemade: "Fait maison",
     homemadeSub: "Du far breton aux frites",
   },
   story: {
     eyebrow: "Notre histoire",
-    title: "Une pâtisserie bretonne devenue *la table* de Chenonceaux.",
+    title: "Une pâtisserie bretonne devenue *la table* de Chenonceaux",
     steps: [
       {
         year: "1947",
         title: "Un pâtissier de Lorient",
-        text: "Sa ville bombardée, M. Girault, pâtissier lorientais, s'installe en Touraine. À Chenonceaux, il ouvre « Au Gâteau Breton », pâtisserie et salon de thé, qu'il tiendra plus de vingt ans.",
+        text: "Sa ville bombardée, M. Girault, pâtissier lorientais, s’installe en Touraine. À Chenonceaux, il ouvre « Au Gâteau Breton », pâtisserie et salon de thé, qu’il tiendra plus de vingt ans.",
       },
       {
         year: "40 ans",
@@ -60,17 +64,17 @@ const fr = {
         text: "La famille Herembert reprend la maison et, de père en fils, en fait un restaurant traditionnel pendant plus de quarante ans.",
       },
       {
-        year: "Aujourd'hui",
-        title: "O'GB, Nicolas & Teddy",
-        text: "Philippe Herembert passe le relais à Nicolas, le chef, et Teddy, amis du métier depuis plus de dix ans. Leur carte : des produits locaux, du fait maison, et l'envie de bien recevoir.",
+        year: "Aujourd’hui",
+        title: "O’GB, Nicolas & Teddy",
+        text: "Philippe Herembert passe le relais à Nicolas, le chef, et Teddy, amis du métier depuis plus de dix ans. Leur carte : des produits locaux, du fait maison, et l’envie de bien recevoir.",
       },
     ],
-    quote: "« De tous les arts, l'art culinaire est celui qui nourrit le mieux son homme. »",
+    quote: "« De tous les arts, l’art culinaire est celui qui nourrit le mieux son homme. »",
     quoteAuthor: "Pierre Dac",
   },
   signatures: {
     eyebrow: "Les incontournables",
-    title: "Ce qu'on vient *chercher* chez nous.",
+    title: "Ce qu’on vient *chercher* chez nous",
     items: {
       foieGras: {
         title: "Foie gras mi-cuit maison",
@@ -88,21 +92,21 @@ const fr = {
       },
       far: {
         title: "Gourmandise de Bretagne",
-        text: "Notre far breton revisité, caramel et glace au beurre salé : un clin d'œil à la pâtisserie de 1947.",
+        text: "Notre far breton revisité, caramel et glace au beurre salé : un clin d’œil à la pâtisserie de 1947.",
         badge: "Depuis 1947",
       },
     },
   },
   menu: {
     eyebrow: "La carte",
-    title: "Une carte courte, de saison, *entièrement faite maison*.",
-    lead: "La carte évolue avec les saisons et les arrivages. Le menu du jour s'affiche chaque midi à l'ardoise.",
+    title: "Une carte courte, de saison, *entièrement faite maison*",
+    lead: "La carte évolue avec les saisons et les arrivages. Le menu du jour s’affiche chaque midi à l’ardoise.",
     homemade: "Fait maison",
     allergens: "Une allergie, un régime particulier ? Dites-le-nous, nous adaptons.",
   },
   spaces: {
     eyebrow: "Les lieux",
-    title: "Quatre ambiances *sous un même toit*.",
+    title: "Quatre ambiances *sous un même toit*",
     items: [
       {
         key: "veranda",
@@ -125,14 +129,14 @@ const fr = {
       {
         key: "private",
         title: "Le salon privé",
-        text: "Jusqu'à 20 personnes, rien que pour vous : repas de famille, d'équipe ou de fête.",
+        text: "Jusqu’à 20 personnes, rien que pour vous : repas de famille, d’équipe ou de fête.",
         alt: "Le salon privé dressé pour un repas de groupe",
       },
     ],
   },
   reservation: {
     eyebrow: "Réservation",
-    title: "Réservez *votre table*.",
+    title: "Réservez *votre table*",
     lead: "Choisissez votre jour, votre service et votre heure. Nous vous confirmons votre table au plus vite.",
     phoneLead: "Vous préférez appeler ?",
     groupsLead: "Plus de 8 personnes ?",
@@ -142,7 +146,7 @@ const fr = {
     today: "Auj.",
     closed: "Fermé",
     noSlots: "Plus de créneau disponible pour ce service.",
-    pickDate: "Choisissez d'abord une date.",
+    pickDate: "Choisissez d’abord une date.",
     services: { lunch: "Déjeuner", dinner: "Dîner" },
     guestsUnit: (n: number) => (n > 1 ? `${n} personnes` : "1 personne"),
     fewer: "Retirer une personne",
@@ -164,18 +168,18 @@ const fr = {
       "La réservation en ligne sera activée très prochainement. Pour garantir votre table dès maintenant, appelez-nous : nous la notons en une minute.",
     successTitle: "Demande envoyée, merci !",
     successText: "Nous vous confirmons votre table par e-mail ou par téléphone. Référence :",
-    errorText: "L'envoi n'a pas abouti. Réessayez ou appelez-nous directement.",
+    errorText: "L’envoi n’a pas abouti. Réessayez ou appelez-nous directement.",
     edit: "Modifier ma demande",
     required: "Merci de compléter les champs indiqués.",
   },
   groups: {
     eyebrow: "Groupes & entreprises",
-    title: "Vos repas de groupe, *sur mesure*.",
-    lead: "Repas d'équipe, fin d'année, départ en retraite, anniversaire ou réception : nous composons un menu à votre image et vous réservons le salon privé.",
+    title: "Vos repas de groupe, *sur mesure*",
+    lead: "Repas d’équipe, fin d’année, départ en retraite, anniversaire ou réception : nous composons un menu à votre image et vous réservons le salon privé.",
     points: [
-      "Salon privé jusqu'à 20 personnes",
+      "Salon privé jusqu’à 20 personnes",
       "Menus personnalisés selon votre budget",
-      "Repas d'entreprise, séminaires & fêtes de fin d'année",
+      "Repas d’entreprise, séminaires & fêtes de fin d’année",
       "Anniversaires, baptêmes & réceptions de mariage",
       "Plats à emporter pour vos événements",
     ],
@@ -185,24 +189,24 @@ const fr = {
       "Bonjour,\n\nNous souhaiterions organiser un repas de groupe :\n- Date souhaitée :\n- Nombre de personnes :\n- Occasion :\n- Budget par personne :\n\nMerci !",
   },
   stay: {
-    eyebrow: "Chambre d'hôtes",
-    title: "Prolongez l'étape : *dormez chez nous*.",
-    lead: "À la même adresse, notre chambre d'hôtes « O'GB La Renaissance » vous accueille au cœur du village, à quelques minutes à pied du château. Dînez, montez, et visitez Chenonceau dès l'ouverture.",
+    eyebrow: "Chambre d’hôtes",
+    title: "Prolongez l’étape : *dormez chez nous*",
+    lead: "À la même adresse, notre chambre d’hôtes « O’GB La Renaissance » vous accueille au cœur du village, à quelques minutes à pied du château. Dînez, montez, et visitez Chenonceau dès l’ouverture.",
     features: ["Chambre climatisée", "Salle de bain privative", "Wi-Fi gratuit", "Jardin & terrasse"],
     cta: "Réserver la chambre",
-    alt: "La chambre d'hôtes O'GB La Renaissance",
+    alt: "La chambre d’hôtes O’GB La Renaissance",
   },
   reviews: {
     eyebrow: "Ils en parlent",
-    title: "Les mots de *nos clients*.",
+    title: "Les mots de *nos clients*",
     leave: "Vous êtes venus ? Laissez-nous un avis",
   },
   info: {
     eyebrow: "Infos pratiques",
-    title: "Nous *trouver*.",
+    title: "Nous *trouver*",
     hours: "Horaires du service",
     closed: "Fermé",
-    today: "Aujourd'hui",
+    today: "Aujourd’hui",
     bar: "Accueil & bar dès",
     exceptions: "Horaires exceptionnels",
     address: "Adresse",
@@ -224,7 +228,7 @@ export type Dictionary = typeof fr;
 
 const en: Dictionary = {
   meta: {
-    title: "O'GB · Au Gâteau Breton — Home-made French restaurant in Chenonceaux since 1947",
+    title: "O’GB · Au Gâteau Breton — Home-made French restaurant in Chenonceaux since 1947",
     description:
       "Home-made French cooking a short walk from the Château de Chenonceau. Conservatory, garden terrace, private room and B&B. Book your table.",
   },
@@ -252,24 +256,28 @@ const en: Dictionary = {
   },
   hero: {
     eyebrow: "Chenonceaux · Since 1947",
-    title: "Home-made French cooking, *steps* from the château.",
+    plaque: "Restaurant",
+    titleTop: "Home-made French cooking",
+    titleBottom: "steps from the château.",
     lead: "Seasonal dishes made from scratch, local produce and French beef, served in a family house a short walk from the Château de Chenonceau.",
     ctaBook: "Book a table",
     ctaMenu: "See the menu",
     seal: "Au Gâteau Breton · Chenonceaux · Established 1947 · ",
     since: "Since",
-    imageAlt: "The restaurant's light-filled conservatory with laid tables",
+    imageAlt: "The restaurant’s light-filled conservatory with laid tables",
     facadeAlt: "The front of Au Gâteau Breton, rue du Docteur Bretonneau",
   },
+  marquee: ["Home-made", "Mi-cuit foie gras", "Royal cut of beef", "Far breton, reinvented", "Fresh-cut fries", "Garden terrace", "Since 1947"],
   proof: {
     google: "on Google",
     reviews: "reviews",
-    homemade: "100% home-made",
+    homemadeBig: "100%",
+    homemade: "Home-made",
     homemadeSub: "From far breton to fries",
   },
   story: {
     eyebrow: "Our story",
-    title: "A Breton pastry shop that became *Chenonceaux's table*.",
+    title: "A Breton pastry shop that became *Chenonceaux’s table*",
     steps: [
       {
         year: "1947",
@@ -283,7 +291,7 @@ const en: Dictionary = {
       },
       {
         year: "Today",
-        title: "O'GB, Nicolas & Teddy",
+        title: "O’GB, Nicolas & Teddy",
         text: "Philippe Herembert handed over to Nicolas, the chef, and Teddy, friends in the trade for over ten years. Their menu: local produce, everything home-made, and a genuine love of hosting.",
       },
     ],
@@ -292,7 +300,7 @@ const en: Dictionary = {
   },
   signatures: {
     eyebrow: "House favourites",
-    title: "What our guests *come back* for.",
+    title: "What our guests *come back* for",
     items: {
       foieGras: {
         title: "House mi-cuit foie gras",
@@ -304,9 +312,9 @@ const en: Dictionary = {
         text: "French-born and raised beef, fresh home-cut fries. Voted best steaks in Chenonceaux.",
       },
       burger: {
-        title: "The chef's burger",
+        title: "The chef’s burger",
         text: "Freshly minced beef, artisan bun, fresh home-cut fries.",
-        alt: "The chef's burger and fries on a slate",
+        alt: "The chef’s burger and fries on a slate",
       },
       far: {
         title: "A taste of Brittany",
@@ -317,14 +325,14 @@ const en: Dictionary = {
   },
   menu: {
     eyebrow: "The menu",
-    title: "A short, seasonal menu, *all made in-house*.",
+    title: "A short, seasonal menu, *all made in-house*",
     lead: "The menu follows the seasons and the market. The dish of the day is chalked up every lunchtime.",
     homemade: "Home-made",
     allergens: "Allergies or dietary needs? Let us know and we will adapt.",
   },
   spaces: {
     eyebrow: "The place",
-    title: "Four settings *under one roof*.",
+    title: "Four settings *under one roof*",
     items: [
       {
         key: "veranda",
@@ -354,7 +362,7 @@ const en: Dictionary = {
   },
   reservation: {
     eyebrow: "Reservations",
-    title: "Book *your table*.",
+    title: "Book *your table*",
     lead: "Choose your day, service and time. We will confirm your table as soon as possible.",
     phoneLead: "Prefer to call?",
     groupsLead: "More than 8 guests?",
@@ -391,7 +399,7 @@ const en: Dictionary = {
   },
   groups: {
     eyebrow: "Groups & companies",
-    title: "Group dining, *tailored to you*.",
+    title: "Group dining, *tailored to you*",
     lead: "Team lunches, end-of-year parties, retirements, birthdays or receptions: we design a menu around you and keep the private room for your group.",
     points: [
       "Private room for up to 20 guests",
@@ -407,20 +415,20 @@ const en: Dictionary = {
   },
   stay: {
     eyebrow: "Bed & breakfast",
-    title: "Make a night of it: *stay with us*.",
-    lead: "At the same address, our B&B « O'GB La Renaissance » welcomes you in the heart of the village, a short walk from the château. Have dinner, head upstairs, and visit Chenonceau as soon as it opens.",
+    title: "Make a night of it: *stay with us*",
+    lead: "At the same address, our B&B « O’GB La Renaissance » welcomes you in the heart of the village, a short walk from the château. Have dinner, head upstairs, and visit Chenonceau as soon as it opens.",
     features: ["Air-conditioned room", "Private bathroom", "Free Wi-Fi", "Garden & terrace"],
     cta: "Book the room",
-    alt: "The O'GB La Renaissance guest room",
+    alt: "The O’GB La Renaissance guest room",
   },
   reviews: {
     eyebrow: "Guest reviews",
-    title: "In our *guests' words*.",
+    title: "In our *guests’ words*",
     leave: "Dined with us? Leave a review",
   },
   info: {
     eyebrow: "Plan your visit",
-    title: "*Find* us.",
+    title: "*Find* us",
     hours: "Kitchen hours",
     closed: "Closed",
     today: "Today",
