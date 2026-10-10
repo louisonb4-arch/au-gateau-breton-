@@ -270,7 +270,7 @@ export function ReservationForm({ lang }: { lang: Locale }) {
                   e.currentTarget.scrollIntoView({ block: "nearest", inline: "nearest", behavior: scrollBehavior() });
                 }}
                 onKeyDown={onRadioKeyDown}
-                className={`${chip} flex h-[4.75rem] w-[3.6rem] shrink-0 snap-start flex-col items-center justify-center gap-0.5 border-line bg-paper hover:border-ink/40 sm:w-16`}
+                className={`${chip} flex h-[4.75rem] w-[3.6rem] shrink-0 snap-start flex-col items-center justify-center gap-0.5 border-line bg-paper hover:border-ink/40 aria-checked:shadow-[0_6px_12px_-8px_rgba(101,13,42,0.7)] sm:w-16`}
               >
                 <span className="text-xs tracking-wide uppercase opacity-75">{i === 0 ? t.today : weekday(d.iso)}</span>
                 <span className="font-display text-[1.9rem] leading-none">{dayNum(d.iso)}</span>

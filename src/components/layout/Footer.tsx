@@ -26,10 +26,10 @@ export function Footer({ t }: { t: Dictionary }) {
         </div>
         <div className="text-sm leading-relaxed">
           <p className="mb-4 eyebrow text-brass-light">{t.info.contact}</p>
-          <a href={restaurant.phone.href} className="block font-display text-[1.9rem] leading-none tracking-[0.03em] text-paper hover:text-brass-light">
+          <a href={restaurant.phone.href} className="flex min-h-11 items-center font-display text-[1.9rem] leading-none tracking-[0.03em] text-paper hover:text-brass-light">
             {restaurant.phone.display}
           </a>
-          <a href={`mailto:${restaurant.email}`} className="mt-1 flex min-h-11 items-center break-all hover:text-paper">
+          <a href={`mailto:${restaurant.email}`} className="flex min-h-11 items-center break-all hover:text-paper">
             {restaurant.email}
           </a>
         </div>

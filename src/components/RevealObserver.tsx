@@ -18,7 +18,10 @@ export function RevealObserver() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-    const fold = window.innerHeight * 0.92;
+    // On phones the fixed call/book bar covers the bottom of the screen: count only what is above it.
+    const bar = document.querySelector<HTMLElement>("[data-mobile-bar]");
+    const visibleBottom = bar && getComputedStyle(bar).display !== "none" ? bar.getBoundingClientRect().top : window.innerHeight;
+    const fold = visibleBottom - window.innerHeight * 0.08;
     for (const el of elements) {
       if (el.getBoundingClientRect().top < fold) el.classList.add("is-in");
     }

@@ -26,7 +26,7 @@ export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
 
           <h1 id="hero-title" className="mt-6 lg:mt-7">
             {/* Sized on width and height, so the call to action stays on the first screen of a laptop. */}
-            <span className="title-caps block text-[4.6rem] leading-[0.84] text-ink min-[400px]:text-[5.2rem] sm:text-[7.25rem] lg:text-[clamp(5.5rem,min(9.5vw,15svh),8.6rem)]">
+            <span className="title-caps block text-[4.6rem] leading-[0.84] text-ink min-[400px]:text-[5.2rem] sm:text-[7.25rem] lg:text-[clamp(5.5rem,min(9.5vw,15svh),8.6rem)] [@media(max-height:700px)_and_(max-width:639px)]:text-[3.9rem]">
               {words(h.titleTop)}
             </span>
             <span className="mt-2 block font-serif text-[2.35rem] leading-[1.05] tracking-[-0.015em] text-balance text-bordeaux italic sm:text-[3.4rem] lg:text-[clamp(2.6rem,min(4.3vw,7svh),3.9rem)]">
@@ -34,10 +34,10 @@ export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
             </span>
           </h1>
 
-          <p data-hero style={delay(0.75)} className="mt-6 max-w-xl text-[1.2rem] leading-relaxed text-pretty text-slate sm:text-[1.32rem] lg:mt-7">
+          <p data-hero style={delay(0.75)} className="mt-6 max-w-xl text-[1.2rem] leading-relaxed text-pretty text-slate sm:text-[1.32rem] lg:mt-7 [@media(max-height:700px)_and_(max-width:639px)]:text-[1.1rem] [@media(max-height:700px)_and_(max-width:639px)]:leading-normal">
             {h.lead}
           </p>
-          <div data-hero style={delay(0.9)} className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-9">
+          <div data-hero style={delay(0.9)} className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-9 [@media(max-height:700px)_and_(max-width:639px)]:mt-6">
             <ButtonLink href="#reserver" size="lg">
               {h.ctaBook}
               <ArrowRight className="size-4" />
