@@ -74,7 +74,7 @@ export function Hero({ lang, t }: { lang: Locale; t: Dictionary }) {
               <Image src="/images/facade.webp" alt={h.facadeAlt} fill sizes="200px" className="object-cover" />
             </div>
           </div>
-          <div data-hero-pop className="absolute -top-4 right-0 sm:-right-4 lg:top-14 xl:-right-10">
+          <div data-hero-pop className="absolute -top-4 right-0 sm:-right-4 lg:top-14 min-[1312px]:-right-10">
             <Seal text={h.seal} since={h.since} />
           </div>
         </div>

@@ -39,7 +39,7 @@ export function Footer({ t }: { t: Dictionary }) {
       <p
         aria-hidden
         data-reveal="words"
-        className="title-caps container-site pt-2 pb-6 text-center text-[min(13.5vw,11.5rem)] leading-[0.85] whitespace-nowrap text-paper/[0.08] select-none"
+        className="title-caps container-site pt-2 pb-6 text-center text-[min(13.5vw,11.5rem)] leading-[0.85] whitespace-nowrap text-paper/[0.08] select-none words-tight"
       >
         {words(restaurant.name)}
       </p>

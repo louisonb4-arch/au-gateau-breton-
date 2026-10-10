@@ -236,16 +236,21 @@ export function ReservationForm({ lang }: { lang: Locale }) {
 
         <Step n={1} id="resa-step-date" label={t.steps.date}>
           <noscript>
+            <style>{'[aria-labelledby="resa-step-date"][role="radiogroup"]{display:none}'}</style>
             <p className="text-[15px] text-slate">
-              {t.soon} {restaurant.phone.display}.
+              {t.soon}{" "}
+              <a href={restaurant.phone.href} className="font-semibold whitespace-nowrap text-bordeaux">
+                {restaurant.phone.display}
+              </a>
+              .
             </p>
           </noscript>
-          {/* Fades on the right to hint that more dates scroll in. */}
+          {/* A short fade on the right hints that more dates scroll in; the end padding lets the last date clear it. */}
           <div
             role="radiogroup"
             aria-labelledby="resa-step-date"
             aria-busy={days.length === 0}
-            className="no-scrollbar -mx-2 -my-2 flex snap-x scroll-px-2 gap-2 overflow-x-auto px-2 py-3 [mask-image:linear-gradient(to_right,#000_86%,transparent)]"
+            className="no-scrollbar -mx-2 -my-2 flex snap-x scroll-pr-12 scroll-pl-2 gap-2 overflow-x-auto py-3 pr-12 pl-2 [mask-image:linear-gradient(to_left,transparent,#000_2.5rem)]"
           >
             {days.length === 0 &&
               Array.from({ length: 7 }, (_, i) => (
@@ -260,7 +265,10 @@ export function ReservationForm({ lang }: { lang: Locale }) {
                 tabIndex={d.closed ? -1 : rovingTabIndex(date === d.iso, i === firstOpenDay, date !== null)}
                 disabled={d.closed}
                 aria-label={longDate(d.iso)}
-                onClick={() => pickDate(d.iso)}
+                onClick={(e) => {
+                  pickDate(d.iso);
+                  e.currentTarget.scrollIntoView({ block: "nearest", inline: "nearest", behavior: scrollBehavior() });
+                }}
                 onKeyDown={onRadioKeyDown}
                 className={`${chip} flex h-[4.75rem] w-[3.6rem] shrink-0 snap-start flex-col items-center justify-center gap-0.5 border-line bg-paper hover:border-ink/40 sm:w-16`}
               >

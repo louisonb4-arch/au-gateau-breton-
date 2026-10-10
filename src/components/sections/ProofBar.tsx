@@ -24,7 +24,7 @@ export function ProofBar({ lang, t }: { lang: Locale; t: Dictionary["proof"] }) 
           >
             <span className="font-display text-[2.6rem] leading-none text-bordeaux">{item.big}</span>
             <span className="font-sans leading-tight">
-              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-ink">
+              <span className="flex items-center gap-1.5 text-[13px] font-semibold text-balance text-ink">
                 {item.stars && <Star className="size-3.5 fill-brass text-brass" aria-hidden />}
                 {item.title}
               </span>

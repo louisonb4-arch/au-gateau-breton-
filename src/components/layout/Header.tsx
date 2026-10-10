@@ -66,6 +66,15 @@ export function Header({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
     };
   }, [open]);
 
+  // The mobile menu does not exist at the desktop breakpoint (rotated tablet, wider window): close it,
+  // otherwise the page behind it would stay inert and locked.
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 64rem)");
+    const onChange = () => desktop.matches && setOpen(false);
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
+
   // After choosing a section in the menu, put focus on that section instead of losing it.
   const goTo = (id: string) => {
     setOpen(false);

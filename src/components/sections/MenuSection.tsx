@@ -27,7 +27,7 @@ function DishRow({ dish, lang, i }: { dish: Dish; lang: Locale; i: number }) {
           </>
         )}
       </div>
-      {dish.description && <p className="mt-1 max-w-[46ch] text-[1.05rem] leading-relaxed text-slate italic">{dish.description[lang]}</p>}
+      {dish.description && <p className="mt-1 max-w-[46ch] text-[1.05rem] leading-relaxed text-pretty text-slate italic">{dish.description[lang]}</p>}
     </li>
   );
 }
@@ -81,7 +81,7 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
     const next = (index + (e.key === "ArrowRight" ? 1 : -1) + menuTabs.length) % menuTabs.length;
     setActive(menuTabs[next].id);
-    document.getElementById(`${baseId}-tab-${menuTabs[next].id}`)?.focus();
+    document.getElementById(`${baseId}-tab-${menuTabs[next].id}`)?.focus({ preventScroll: true });
   };
 
   return (
@@ -134,7 +134,7 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
 
         {/* Without JavaScript the tabs cannot switch, so every panel is shown. */}
         <noscript>
-          <style>{'[role="tabpanel"][hidden]{display:block}[role="tablist"]{display:none}'}</style>
+          <style>{'[role="tabpanel"][hidden]{display:block!important}[role="tablist"]{display:none}'}</style>
         </noscript>
         {/* Every panel stays in the HTML (hidden when inactive) so search engines index the whole menu. */}
         {menuTabs.map((tab) => {
@@ -148,6 +148,10 @@ export function MenuSection({ lang, t }: { lang: Locale; t: Dictionary["menu"] }
               hidden={tab.id !== active}
               className="mt-8 rounded-[1.75rem] border border-line bg-paper p-6 shadow-[0_30px_60px_-50px_rgba(38,44,51,0.5)] sm:p-10 lg:p-14"
             >
+              {/* Without JavaScript all panels are shown one after another, so each needs its name. */}
+              <noscript>
+                <h3 className="mb-8 font-display text-[2.6rem] leading-none tracking-[0.02em] text-bordeaux uppercase">{tab.label[lang]}</h3>
+              </noscript>
               {tab.intro && (
                 <p data-dish className="mb-10 max-w-xl font-serif text-[1.45rem] leading-snug text-pretty text-bordeaux italic">
                   {tab.intro[lang]}

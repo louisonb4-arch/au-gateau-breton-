@@ -42,10 +42,7 @@ export function Story({ t }: { t: Dictionary }) {
               ))}
             </ol>
           </div>
-          <blockquote data-reveal className="relative mt-16 overflow-hidden rounded-[1.75rem] bg-bordeaux px-8 py-10 text-paper sm:px-12">
-            <span aria-hidden className="pointer-events-none absolute -top-14 -left-4 font-serif text-[11rem] leading-none text-paper/10">
-              {s.quote.charAt(0)}
-            </span>
+          <blockquote data-reveal className="relative mt-16 rounded-[1.75rem] bg-bordeaux px-8 py-10 text-paper sm:px-12">
             <p className="relative font-serif text-[1.65rem] leading-snug italic">{s.quote}</p>
             <footer className="relative mt-5 eyebrow text-brass-light">{s.quoteAuthor}</footer>
           </blockquote>
