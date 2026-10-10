@@ -2,13 +2,22 @@ import type { Metadata } from "next";
 import { dictionaries } from "@/content/dictionary";
 import { localePath, type Locale } from "@/lib/i18n";
 
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.augateaubreton.fr").replace(/\/$/, "");
+/**
+ * NEXT_PUBLIC_SITE_URL = the restaurant's real domain. Until it is set, the site
+ * (local dev, *.vercel.app preview) is kept out of search engines so it never competes with the live site.
+ */
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL; // provided by Vercel at build time
+
+export const siteUrl = (configuredUrl ?? (vercelUrl ? `https://${vercelUrl}` : "http://localhost:3000")).replace(/\/$/, "");
+export const indexable = Boolean(configuredUrl);
 
 export function pageMetadata(lang: Locale): Metadata {
   const t = dictionaries[lang].meta;
   return {
     title: t.title,
     description: t.description,
+    robots: indexable ? undefined : { index: false, follow: false },
     alternates: {
       canonical: localePath[lang],
       languages: { fr: "/", en: "/en", "x-default": "/" },

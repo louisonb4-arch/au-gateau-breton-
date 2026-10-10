@@ -63,7 +63,9 @@ Les règles (8 couverts maximum en ligne, créneaux de 15 min, dernier service 4
 
 ## Déploiement
 
-Pensé pour Vercel (import du dépôt, aucune configuration). Définir `NEXT_PUBLIC_SITE_URL` avec le domaine final.
+Pensé pour Vercel : importer le dépôt sur vercel.com/new, aucune configuration requise. Chaque push redéploie automatiquement.
+
+Tant que `NEXT_PUBLIC_SITE_URL` n'est pas défini, le site est en mode préproduction : `noindex` + `robots.txt` bloquant, pour ne pas concurrencer l'ancien site sur Google. Le jour de la mise en ligne : brancher le domaine dans Vercel, puis définir `NEXT_PUBLIC_SITE_URL` avec ce domaine et redéployer.
 
 ## À valider avant la mise en ligne
 
